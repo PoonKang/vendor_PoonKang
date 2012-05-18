@@ -9,7 +9,7 @@ PRODUCT_PACKAGE_OVERLAYS += vendor/aokp/overlay/supersonic
 #
 # Setup device specific product configuration.
 #
-PRODUCT_NAME := aokp_supersonic
+PRODUCT_NAME := PoonKang_supersonic
 PRODUCT_BRAND := sprint
 PRODUCT_DEVICE := supersonic
 PRODUCT_MODEL := PC36100
