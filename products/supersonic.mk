@@ -2,7 +2,7 @@
 $(call inherit-product, device/htc/supersonic/full_supersonic.mk)
 
 # Inherit some common aokp stuff.
-$(call inherit-product, vendor/aokp/configs/common_phone.mk)
+$(call inherit-product, vendor/PoonKang/configs/common_phone.mk)
 
 PRODUCT_PACKAGE_OVERLAYS += vendor/aokp/overlay/supersonic
 
