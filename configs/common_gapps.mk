@@ -3,7 +3,6 @@ PRODUCT_COPY_FILES += \
     vendor/PoonKang/prebuilt/gapps/app/ChromeBookmarksSyncAdapter.apk:system/app/ChromeBookmarksSyncAdapter.apk \
     vendor/PoonKang/prebuilt/gapps/app/GalleryGoogle.apk:system/app/GalleryGoogle.apk \
     vendor/PoonKang/prebuilt/gapps/app/GenieWidget.apk:system/app/GenieWidget.apk \
-    vendor/PoonKang/prebuilt/gapps/app/ChromeBookmarksSyncAdapter.apk:system/app/ChromeBookmarksSyncAdapter.apk \
     vendor/PoonKang/prebuilt/gapps/app/GoogleBackupTransport.apk:system/app/GoogleBackupTransport.apk \
     vendor/PoonKang/prebuilt/gapps/app/GoogleCalendarSyncAdapter.apk:system/app/GoogleCalendarSyncAdapter.apk \
     vendor/PoonKang/prebuilt/gapps/app/GoogleContactsSyncAdapter.apk:system/app/GoogleContactsSyncAdapter.apk \
