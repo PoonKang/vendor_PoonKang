@@ -3,6 +3,8 @@ $(call inherit-product, device/htc/supersonic/full_supersonic.mk)
 
 # Inherit some common aokp stuff.
 $(call inherit-product, vendor/PoonKang/configs/common_phone.mk)
+
+# Inherit prebuilt gapps.
 $(call inherit-product, vendor/PoonKang/configs/common_gapps.mk)
 
 PRODUCT_PACKAGE_OVERLAYS += vendor/aokp/overlay/supersonic
