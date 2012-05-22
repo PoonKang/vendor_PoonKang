@@ -12,7 +12,8 @@ PRODUCT_PACKAGES += \
     openvpn \
     ROMControl \
     su \
-    SwagPapers
+    SwagPapers \
+    Trebuchet
 
 ifeq ($(USER),poonkang)
 include vendor/PoonKang/dev/dev_common.mk
