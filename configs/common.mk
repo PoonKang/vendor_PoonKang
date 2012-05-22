@@ -8,15 +8,13 @@ PRODUCT_PACKAGE_OVERLAYS += vendor/PoonKang/overlay/common
 include vendor/aokp/configs/themes_common.mk
 
 PRODUCT_PACKAGES += \
+    Apollo \
     openvpn \
     ROMControl \
     su \
     SwagPapers
 
 ifeq ($(USER),poonkang)
-PRODUCT_PACKAGES += \
-    Apollo \
-    Torch
 include vendor/PoonKang/dev/dev_common.mk
 endif
 
