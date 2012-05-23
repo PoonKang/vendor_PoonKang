@@ -5,6 +5,9 @@ PRODUCT_RELEASE_NAME := Fascinate
 
 $(call inherit-product, vendor/PoonKang/configs/common_phone.mk)
 
+# Inherit prebuilt gapps.
+# $(call inherit-product, vendor/PoonKang/configs/common_gapps.mk)
+
 PRODUCT_PACKAGE_OVERLAYS += vendor/aokp/overlay/aries-common
 
 # $(call inherit-product, vendor/cm/config/gsm.mk)
