@@ -1,7 +1,7 @@
 # Inherit AOSP device configuration for supersonic.
 $(call inherit-product, device/htc/supersonic/full_supersonic.mk)
 
-# Inherit some common aokp stuff.
+# Inherit some common phone stuff.
 $(call inherit-product, vendor/PoonKang/configs/common_phone.mk)
 
 # Inherit prebuilt gapps.
