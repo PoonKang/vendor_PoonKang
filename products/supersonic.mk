@@ -7,6 +7,9 @@ PRODUCT_RELEASE_NAME := Supersonic
 # Inherit some common phone stuff.
 $(call inherit-product, vendor/PoonKang/configs/common_phone.mk)
 
+# Include CDMA stuff
+$(call inherit-product, vendor/PoonKang/config/cdma.mk)
+
 # Inherit prebuilt gapps.
 $(call inherit-product, vendor/PoonKang/configs/common_gapps.mk)
 
