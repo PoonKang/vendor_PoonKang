@@ -5,12 +5,14 @@ PRODUCT_RELEASE_NAME := Fascinate
 
 $(call inherit-product, vendor/PoonKang/configs/common_phone.mk)
 
+PRODUCT_PACKAGE_OVERLAYS += vendor/aokp/overlay/aries-common
+# endif
+
+# Include CDMA stuff
+# $(call inherit-product, vendor/PoonKang/config/cdma.mk)
+
 # Inherit prebuilt gapps.
 # $(call inherit-product, vendor/PoonKang/configs/common_gapps.mk)
-
-PRODUCT_PACKAGE_OVERLAYS += vendor/aokp/overlay/aries-common
-
-# $(call inherit-product, vendor/cm/config/gsm.mk)
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := fascinatemtd

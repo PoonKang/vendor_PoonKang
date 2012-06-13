@@ -1,6 +1,9 @@
 # Inherit AOSP device configuration for supersonic.
 $(call inherit-product, device/htc/supersonic/full_supersonic.mk)
 
+# Release name
+PRODUCT_RELEASE_NAME := Supersonic
+
 # Inherit some common phone stuff.
 $(call inherit-product, vendor/PoonKang/configs/common_phone.mk)
 
@@ -9,9 +12,7 @@ $(call inherit-product, vendor/PoonKang/configs/common_gapps.mk)
 
 PRODUCT_PACKAGE_OVERLAYS += vendor/aokp/overlay/supersonic
 
-#
-# Setup device specific product configuration.
-#
+## Device identifier. This must come after all inclusions
 PRODUCT_NAME := PoonKang_supersonic
 PRODUCT_BRAND := sprint
 PRODUCT_DEVICE := supersonic
