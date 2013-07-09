@@ -86,8 +86,6 @@ PA_VERSION_MINOR = 6
 PA_VERSION_MAINTENANCE = 5
 PA_PREF_REVISION = 1
 
-TARGET_CUSTOM_RELEASETOOL :=source vendor/pa/tools/squisher
-
 VERSION := $(PA_VERSION_MAJOR).$(PA_VERSION_MINOR)$(PA_VERSION_MAINTENANCE)
 ifeq ($(DEVELOPER_VERSION),true)
     PA_VERSION := dev_$(BOARD)-$(VERSION)-$(shell date -u +%Y%m%d)
@@ -104,7 +102,5 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # goo.im properties
 ifneq ($(DEVELOPER_VERSION),true)
     PRODUCT_PROPERTY_OVERRIDES += \
-      ro.goo.developerid=paranoidandroid \
-      ro.goo.rom=paranoidandroid \
-      ro.goo.version=$(shell date +%s)
+      ro.goo.rom=paranoidandroid
 endif
