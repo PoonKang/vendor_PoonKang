@@ -7,6 +7,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.goo.developerid=$(USER) \
     ro.goo.version=$(shell date +%s)
 
+# Specify apn type
+APN_CONF ?= apns-conf-cdma
+
 # Define Paranoid Android Target
 ifeq ($(BUILD_TYPE),ParanoidAndroid)
 -include vendor/PoonKang/config/paranoid.mk
