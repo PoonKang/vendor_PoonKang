@@ -116,6 +116,13 @@ cp -r $ANDROID_BUILD_TOP/vendor/pa/prebuilt/preferences/$OVERLAYTARGET/* $REPACK
 echo "ro.pa=true"  >> $REPACK/ota/system/build.prop
 fi
 
+if [ -d "$ANDROID_BUILD_TOP"/vendor/PoonKang/scripts ] ; then
+for script in "$ANDROID_BUILD_TOP"/vendor/PoonKang/scripts/*.sh ; do
+echo && echo "	Running $(basename $script)" && echo
+. $script
+done
+fi
+
 # Pack it up and sign
 printf "Zipping package..."
 ( cd $REPACK/ota; zip $QUIET -r $REPACK/update.zip . )
