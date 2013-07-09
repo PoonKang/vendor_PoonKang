@@ -4,6 +4,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
   ro.config.notification_sound=Proxima.ogg \
   ro.config.alarm_alert=Cesium.ogg
 
+# Copy specific ROM files
+PRODUCT_COPY_FILES += \
+    vendor/PoonKang/prebuilt/common/apk/GooManager.apk:system/app/GooManager.apk 
+
 # init.d support
 PRODUCT_COPY_FILES += \
     vendor/pa/prebuilt/common/bin/sysinit:system/bin/sysinit \
@@ -52,16 +56,16 @@ endif
 # T-Mobile theme engine
 include vendor/pa/config/themes_common.mk
 
-# embed superuser into settings 
+# Embed superuser into settings 
 SUPERUSER_EMBEDDED := true
 
 # device common prebuilts
 ifneq ($(DEVICE_COMMON),)
-    -include vendor/pa/prebuilt/$(DEVICE_COMMON)/prebuilt.mk
+    -include vendor/PoonKang/prebuilt/$(DEVICE_COMMON)/prebuilt.mk
 endif
 
 # device specific prebuilts
--include vendor/pa/prebuilt/$(TARGET_PRODUCT)/prebuilt.mk
+-include vendor/PoonKang/prebuilt/$(TARGET_PRODUCT)/prebuilt.mk
 
 BOARD := $(subst pa_,,$(TARGET_PRODUCT))
 
