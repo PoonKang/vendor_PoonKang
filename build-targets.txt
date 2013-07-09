@@ -1,0 +1,7 @@
+# PoonKang build target list
+
+d2vzw-userdebug
+fascinatemtd-userdebug
+jewel-userdebug
+jfltevzw-userdebug
+n8013-userdebug
