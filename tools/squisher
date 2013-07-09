@@ -90,16 +90,22 @@ rm -rf $REPACK/ota/recovery
 	find $REPACK/ota/system/lib/modules -name "*.ko" -print0 | xargs -0 arm-eabi-strip --strip-unneeded
 
 # Determine what to name the new signed package
-if [ -z "$CYANOGEN_NIGHTLY" ]; then
-	PAVERSION=`grep 'ro.modversion=' $REPACK/ota/system/build.prop | sed -e 's/ro.modversion=//g'`
+if [ "$BUILD_TYPE" = ParanoidAndroid ] ; then
+	ROMVERSION=`grep 'ro.modversion=' $REPACK/ota/system/build.prop | sed -e 's/ro.modversion=//g'`
 	OVERLAYTARGET=`grep 'ro.pa.family=' $REPACK/ota/system/build.prop | sed -e 's/ro.pa.family=//g'`
-	: ${PAVERSION:=nightly}
-	OUTFILE=$OUT/$PAVERSION.zip
-	echo PAVERSION: $PAVERSION
+	: ${ROMVERSION:=nightly}
+	OUTFILE=$OUT/$ROMVERSION.zip
+	echo ROMVERSION: $ROMVERSION
+elif [ "$BUILD_TYPE" = JellyBeer ] ; then
+	ROMVERSION=`grep 'ro.modversion=' $REPACK/ota/system/build.prop | sed -e 's/ro.modversion=//g'`
+	DEVICE=`grep 'ro.product.device=' $REPACK/ota/system/build.prop | sed -e 's/ro.product.device=//g'`
+	OUTFILE=$OUT/$ROMVERSION-$DEVICE.zip
+	echo ROMVERSION: $ROMVERSION-$DEVICE
 else
 	OUTFILE=$OUT/update-squished.zip
 fi
 
+if [ "$BUILD_TYPE" = ParanoidAndroid ] ; then
 # Copy ParanoidPreferences overlays
 printf "Copying overlay preferences for $OVERLAYTARGET..."
 echo
@@ -108,6 +114,7 @@ mkdir $REPACK/ota/system/etc/paranoid/preferences/images
 cp -r $ANDROID_BUILD_TOP/vendor/pa/prebuilt/preferences/images/* $REPACK/ota/system/etc/paranoid/preferences/images/
 cp -r $ANDROID_BUILD_TOP/vendor/pa/prebuilt/preferences/$OVERLAYTARGET/* $REPACK/ota/system/etc/paranoid/preferences/
 echo "ro.pa=true"  >> $REPACK/ota/system/build.prop
+fi
 
 # Pack it up and sign
 printf "Zipping package..."
@@ -136,6 +143,6 @@ echo
 )
 
 echo $OUTFILE > $OUT/romPath
-echo $PAVERSION.zip > $OUT/romName
+echo $ROMVERSION.zip > $OUT/romName
 
 exit 0
