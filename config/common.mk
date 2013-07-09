@@ -18,6 +18,7 @@ APN_CONF ?= apns-conf-cdma
 # Define Paranoid Android Target
 ifeq ($(BUILD_TYPE),ParanoidAndroid)
 -include vendor/PoonKang/config/paranoid.mk
+-include vendor/PoonKang/config/staging.mk
 endif
 
 # Define JellyBeer Target
@@ -44,4 +45,5 @@ PRODUCT_PACKAGES += \
     PhaseBeam
 
 -include vendor/PoonKang/config/jellybeer.mk
+-include vendor/PoonKang/config/staging.mk
 endif
