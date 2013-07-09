@@ -2,6 +2,11 @@
 
 TARGET_CUSTOM_RELEASETOOL :=source vendor/PoonKang/tools/squisher
 
+# Linaro tweaks
+TARGET_GCC_VERSION ?= 4.7
+TARGET_KERNEL_CUSTOM_TOOLCHAIN := Linaro-$(TARGET_GCC_VERSION)
+TARGET_USE_O3 := true
+
 # goo.im overrides
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.goo.developerid=$(USER) \
