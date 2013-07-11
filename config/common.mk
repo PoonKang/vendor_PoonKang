@@ -4,7 +4,7 @@ TARGET_CUSTOM_RELEASETOOL :=source vendor/PoonKang/tools/squisher
 
 # Linaro tweaks
 TARGET_GCC_VERSION ?= 4.7
-TARGET_KERNEL_CUSTOM_TOOLCHAIN := Linaro-$(TARGET_GCC_VERSION)
+TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-linux-androideabi-$(TARGET_GCC_VERSION)
 TARGET_USE_O3 := true
 
 # goo.im overrides
@@ -17,7 +17,6 @@ APN_CONF ?= apns-conf-cdma
 
 # Define Paranoid Android Target
 ifeq ($(BUILD_TYPE),ParanoidAndroid)
-TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-linux-androideabi-$(TARGET_GCC_VERSION)
 -include vendor/PoonKang/config/paranoid.mk
 -include vendor/PoonKang/config/staging.mk
 endif
