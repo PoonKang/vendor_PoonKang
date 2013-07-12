@@ -98,7 +98,7 @@ if [ "$BUILD_TYPE" = ParanoidAndroid ] ; then
 	echo ROMVERSION: $ROMVERSION
 elif [ "$BUILD_TYPE" = JellyBeer ] ; then
 	ROMVERSION=`grep 'ro.modversion=' $REPACK/ota/system/build.prop | sed -e 's/ro.modversion=//g'`
-	DEVICE=`grep 'ro.product.device=' $REPACK/ota/system/build.prop | sed -e 's/ro.product.device=//g'`
+	DEVICE=`grep 'ro.cm.device=' $REPACK/ota/system/build.prop | sed -e 's/ro.cm.device=//g'`
 	OUTFILE=$OUT/$ROMVERSION-$DEVICE.zip
 	echo ROMVERSION: $ROMVERSION-$DEVICE
 else
