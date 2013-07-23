@@ -154,8 +154,7 @@ PRODUCT_PACKAGES += \
     LockClock \
     PerformanceControl \
     JellyBeerWallpapers \
-    ZipInstaller \
-    OTAPlatform
+    ZipInstaller
 
 PRODUCT_PACKAGES += \
     CellBroadcastReceiver
