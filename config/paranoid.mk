@@ -17,20 +17,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/pa/prebuilt/common/etc/init.d/90userinit:system/etc/init.d/90userinit
 
-# Libs
-PRODUCT_COPY_FILES += \
-    vendor/pa/prebuilt/common/lib/libjni_latinime.so:system/lib/libjni_latinime.so
-
 # Backup Tool
 PRODUCT_COPY_FILES += \
     vendor/pa/prebuilt/common/bin/backuptool.sh:system/bin/backuptool.sh \
     vendor/pa/prebuilt/common/bin/backuptool.functions:system/bin/backuptool.functions \
     vendor/pa/prebuilt/common/bin/50-backupScript.sh:system/addon.d/50-backupScript.sh
-
-# Bring in camera effects
-PRODUCT_COPY_FILES +=  \
-    vendor/pa/prebuilt/common/media/LMprec_508.emd:system/media/LMprec_508.emd \
-    vendor/pa/prebuilt/common/media/PFFprec_600.emd:system/media/PFFprec_600.emd
 
 # Bring in all video files
 $(call inherit-product, frameworks/base/data/videos/VideoPackage2.mk)
@@ -45,6 +36,10 @@ else
         ParanoidPreferences
 endif
 
+# ParanoidOTA
+PRODUCT_PACKAGES += \
+    ParanoidOTA
+
 ifneq ($(PARANOID_BOOTANIMATION_NAME),)
     PRODUCT_COPY_FILES += \
         vendor/pa/prebuilt/common/bootanimation/$(PARANOID_BOOTANIMATION_NAME).zip:system/media/bootanimation.zip
@@ -53,12 +48,10 @@ else
         vendor/pa/prebuilt/common/bootanimation/XHDPI.zip:system/media/bootanimation.zip
 endif
 
-# T-Mobile theme engine
-include vendor/pa/config/themes_common.mk
-
 # Embed superuser into settings 
 SUPERUSER_EMBEDDED := true
-
+ PRODUCT_PACKAGES += \
+        su
 # device common prebuilts
 ifneq ($(DEVICE_COMMON),)
     -include vendor/PoonKang/prebuilt/$(DEVICE_COMMON)/prebuilt.mk
@@ -86,8 +79,8 @@ PRODUCT_COPY_FILES += \
     vendor/pa/prebuilt/$(PA_CONF_SOURCE).conf:system/etc/paranoid/backup.conf
 
 PA_VERSION_MAJOR = 3
-PA_VERSION_MINOR = 6
-PA_VERSION_MAINTENANCE = 9
+PA_VERSION_MINOR = 9
+PA_VERSION_MAINTENANCE = 4
 PA_PREF_REVISION = 1
 
 VERSION := $(PA_VERSION_MAJOR).$(PA_VERSION_MINOR)$(PA_VERSION_MAINTENANCE)
