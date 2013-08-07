@@ -48,10 +48,17 @@ else
         vendor/pa/prebuilt/common/bootanimation/XHDPI.zip:system/media/bootanimation.zip
 endif
 
-# Embed superuser into settings 
+# Embed superuser into settings
 SUPERUSER_EMBEDDED := true
- PRODUCT_PACKAGES += \
-        su
+
+# Enable root for adb+apps
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.root_access=3
+
+# Superuser
+PRODUCT_PACKAGES += \
+    su
+
 # device common prebuilts
 ifneq ($(DEVICE_COMMON),)
     -include vendor/PoonKang/prebuilt/$(DEVICE_COMMON)/prebuilt.mk
@@ -91,13 +98,7 @@ else
 endif
 
 PRODUCT_PROPERTY_OVERRIDES += \
-  ro.modversion=$(PA_VERSION) \
-  ro.pa.family=$(PA_CONF_SOURCE) \
-  ro.pa.version=$(VERSION) \
-  ro.papref.revision=$(PA_PREF_REVISION)
-
-# goo.im properties
-ifneq ($(DEVELOPER_VERSION),true)
-    PRODUCT_PROPERTY_OVERRIDES += \
-      ro.goo.rom=paranoidandroid
-endif
+    ro.modversion=$(PA_VERSION) \
+    ro.pa.family=$(PA_CONF_SOURCE) \
+    ro.pa.version=$(VERSION) \
+    ro.papref.revision=$(PA_PREF_REVISION)
