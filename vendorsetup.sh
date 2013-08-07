@@ -2,7 +2,7 @@ if [ -e vendor/pa ] && [ vendor/PoonKang ] ; then
 export BUILD_TYPE=ParanoidAndroid
 export LINARO_BUILD=true
 for combo in `cat vendor/PoonKang/build-targets.txt | grep -v ^# | grep -v ^$`; do
-    add_lunch_combo pa_$combo
+    add_lunch_combo PoonKang_$combo
 done
 elif [ -e vendor/cm ] && [ vendor/PoonKang ] ; then
 export BUILD_TYPE=JellyBeer

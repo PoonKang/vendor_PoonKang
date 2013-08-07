@@ -1,5 +1,5 @@
-# Copyright (C) 2012 ParanoidAndroid Project
-#
+# Copyright (C) 2013 ParanoidAndroid Project
+# 2013 Modifications by PoonKang
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -15,7 +15,7 @@
 # vendor/pa/prebuilt/common/etc
 
 # Check for target product
-ifeq (pa_d2vzw,$(TARGET_PRODUCT))
+ifeq (PoonKang_d2vzw,$(TARGET_PRODUCT))
 
 # Build additional packages (currently disabled)
 BONUS_PACKAGES ?= false
@@ -57,7 +57,7 @@ CUSTOM_KERNEL ?= false
 # KERNEL_CONFIG ?= 
 
 # Override AOSP build properties
-PRODUCT_NAME := pa_d2vzw
+PRODUCT_NAME := PoonKang_d2vzw
 PRODUCT_BRAND := Samsung
 PRODUCT_MODEL := SCH-I535
 PRODUCT_MANUFACTURER := Samsung

@@ -1,9 +1,9 @@
-ifeq (pa_d2vzw,$(TARGET_PRODUCT))
-    PRODUCT_MAKEFILES += $(LOCAL_DIR)/pa_d2vzw.mk
+ifeq (PoonKang_d2vzw,$(TARGET_PRODUCT))
+    PRODUCT_MAKEFILES += $(LOCAL_DIR)/PoonKang_d2vzw.mk
 endif
-ifeq (pa_fascinatemtd,$(TARGET_PRODUCT))
-    PRODUCT_MAKEFILES += $(LOCAL_DIR)/pa_fascinatemtd.mk
+ifeq (PoonKang_fascinatemtd,$(TARGET_PRODUCT))
+    PRODUCT_MAKEFILES += $(LOCAL_DIR)/PoonKang_fascinatemtd.mk
 endif
-ifeq (pa_jfltevzw,$(TARGET_PRODUCT))
-    PRODUCT_MAKEFILES += $(LOCAL_DIR)/pa_jfltevzw.mk
+ifeq (PoonKang_jfltevzw,$(TARGET_PRODUCT))
+    PRODUCT_MAKEFILES += $(LOCAL_DIR)/PoonKang_jfltevzw.mk
 endif
