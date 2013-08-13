@@ -54,6 +54,11 @@ else
         vendor/pa/prebuilt/common/bootanimation/XHDPI.zip:system/media/bootanimation.zip
 endif
 
+# CM Hardware Abstraction Framework 
+PRODUCT_PACKAGES += \
+    org.cyanogenmod.hardware \
+    org.cyanogenmod.hardware.xml
+
 # Embed superuser into settings
 SUPERUSER_EMBEDDED := true
 
@@ -93,7 +98,7 @@ PRODUCT_COPY_FILES += \
 
 PA_VERSION_MAJOR = 3
 PA_VERSION_MINOR = 9
-PA_VERSION_MAINTENANCE = 5
+PA_VERSION_MAINTENANCE = 6
 PA_PREF_REVISION = 1
 
 VERSION := $(PA_VERSION_MAJOR).$(PA_VERSION_MINOR)$(PA_VERSION_MAINTENANCE)
