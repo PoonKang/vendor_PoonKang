@@ -2,6 +2,7 @@
 PRODUCT_PACKAGES += \
     Apollo \
     DSPManager \
+    Focal \
     libcyanogen-dsp \
     HALO \
     Torch \
