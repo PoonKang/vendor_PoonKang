@@ -49,10 +49,10 @@ APN_CONF ?= apns-conf-cdma
 KERNEL_FROM_SOURCE ?= true
 
 # Build alternate kernel from sources or default to CM's
-CUSTOM_KERNEL ?= true
+CUSTOM_KERNEL ?= false
 
 # Custom Kernel defconfig
-KERNEL_CONFIG ?= jf_vzw_defconfig
+# KERNEL_CONFIG ?= 
 
 # Override AOSP build properties
 PRODUCT_NAME := PoonKang_jfltevzw
