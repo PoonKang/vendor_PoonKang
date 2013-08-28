@@ -15,6 +15,9 @@ echo && echo "	Setting up for $BUILD_TYPE... Linaro Active = $LINARO_BUILD" && e
 
 if [ -e vendor/pa ] && [ vendor/PoonKang ] ; then
     export BUILD_TYPE=ParanoidAndroid
+    if [ -e vendor/pac ] ; then
+        export BUILD_TYPE=PACMAN
+    fi
     do_it linaro
 elif [ -e vendor/cm ] && [ vendor/PoonKang ] ; then
     export BUILD_TYPE=JellyBeer

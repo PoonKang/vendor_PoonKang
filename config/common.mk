@@ -53,3 +53,9 @@ ifeq ($(BUILD_TYPE),Carbon)
 -include vendor/PoonKang/config/carbon.mk
 -include vendor/PoonKang/config/staging.mk
 endif
+
+# Define PAC-man
+ifeq ($(BUILD_TYPE),PACMAN)
+-include vendor/PoonKang/config/pac-man.mk
+-include vendor/PoonKang/config/staging.mk
+endif
