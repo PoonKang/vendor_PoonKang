@@ -12,8 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Check for target product
-ifeq (PoonKang_jfltevzw,$(TARGET_PRODUCT))
+# ParanoidAndroid configuration
+ifeq (ParanoidAndroid,$(BUILD_TYPE))
 
 # Build additional packages (currently disabled)
 BONUS_PACKAGES ?= false
@@ -63,3 +63,21 @@ PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=jfltevzw TARGET_DEVICE=jfltevzw BUI
 
 endif
 
+ifeq (Carbon,$(BUILD_TYPE))
+$(call inherit-product, device/samsung/jfltevzw/full_jfltevzw.mk)
+
+# Inherit some common Carbon stuff.
+$(call inherit-product, vendor/carbon/config/common_cdma.mk)
+
+# Inherit some common Carbon stuff.
+$(call inherit-product, vendor/carbon/config/common_phone.mk)
+
+# languages
+PRODUCT_LOCALES := en_US
+
+PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=jfltevzw TARGET_DEVICE=jfltevzw BUILD_FINGERPRINT="Verizon/jfltevzw/jfltevzw:4.2.2/JDQ39/I545VRUAMDK:user/release-keys" PRIVATE_BUILD_DESC="jfltevzw-user 4.2.2 JDQ39 I545VRUAMDK release-keys"
+
+PRODUCT_NAME := PoonKang_jfltevzw
+PRODUCT_DEVICE := jfltevzw
+
+endif

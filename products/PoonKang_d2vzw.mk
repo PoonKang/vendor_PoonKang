@@ -12,10 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# vendor/pa/prebuilt/common/etc
-
-# Check for target product
-ifeq (PoonKang_d2vzw,$(TARGET_PRODUCT))
+# ParanoidAndroid configuration
+ifeq (ParanoidAndroid,$(BUILD_TYPE))
 
 # Build additional packages (currently disabled)
 BONUS_PACKAGES ?= false
@@ -65,3 +63,21 @@ PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=d2vzw TARGET_DEVICE=d2vzw BUILD_FIN
 
 endif
 
+ifeq (Carbon,$(BUILD_TYPE))
+$(call inherit-product, device/samsung/d2vzw/full_d2vzw.mk)
+
+# Inherit some common Carbon stuff.
+$(call inherit-product, vendor/carbon/config/common_cdma.mk)
+
+# Inherit some common Carbon stuff.
+$(call inherit-product, vendor/carbon/config/common_phone.mk)
+
+# languages
+PRODUCT_LOCALES := en_US
+
+PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=d2vzw TARGET_DEVICE=d2vzw BUILD_FINGERPRINT="Verizon/d2vzw/d2vzw:4.1.2/JZO54K/I535VRBMF1:user/release-keys" PRIVATE_BUILD_DESC="d2vzw-user 4.1.2 JZO54K I535VRBMF1 release-keys"
+
+PRODUCT_NAME := PoonKang_d2vzw
+PRODUCT_DEVICE := d2vzw
+
+endif
