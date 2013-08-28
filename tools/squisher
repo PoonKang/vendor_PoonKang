@@ -109,6 +109,11 @@ elif [ "$BUILD_TYPE" = JellyBeer ] ; then
 	DEVICE=`grep 'ro.cm.device=' $REPACK/ota/system/build.prop | sed -e 's/ro.cm.device=//g'`
 	OUTFILE=$OUT/$ROMVERSION-$DEVICE.zip
 	echo ROMVERSION: $ROMVERSION-$DEVICE
+elif [ "$BUILD_TYPE" = Carbon ] ; then
+    MODVERSION=`sed -n -e'/ro\.carbon\.version/s/^.*=//p' $OUT/system/build.prop`
+    TARGET_PRODUCT_FINAL=`echo $TARGET_PRODUCT | cut -d '_' -f2`
+    echo $CL_CYN"MODVERSION: $MODVERSION"$CL_RST
+    OUTFILE=$OUT/$MODVERSION-$TARGET_PRODUCT_FINAL.zip
 else
 	OUTFILE=$OUT/update-squished.zip
 fi
