@@ -47,9 +47,3 @@ PRODUCT_PACKAGES += \
 -include vendor/PoonKang/config/jellybeer.mk
 -include vendor/PoonKang/config/staging.mk
 endif
-
-# Define Carbon Target
-ifeq ($(BUILD_TYPE),Carbon)
--include vendor/PoonKang/config/carbon.mk
--include vendor/PoonKang/config/staging.mk
-endif
