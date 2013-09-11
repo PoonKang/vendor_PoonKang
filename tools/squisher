@@ -53,12 +53,10 @@ cd $REPACK/ota
 printf "Unpacking $OTAPACKAGE..."
 unzip $QUIET $OTAPACKAGE
 echo
-if [ "$SKIP" != true ] ; then
-    cd $REPACK/ota/system/framework
-    $OPTICHARGER framework-res.apk
-    cd $REPACK/ota/system/app
-    find ./ -name \*.apk | $XARGS $OPTICHARGER
-fi
+cd $REPACK/ota/system/framework
+$OPTICHARGER framework-res.apk
+cd $REPACK/ota/system/app
+find ./ -name \*.apk | $XARGS $OPTICHARGER
 )
 
 # Fix build.prop
@@ -116,10 +114,6 @@ elif [ "$BUILD_TYPE" = Carbon ] ; then
     TARGET_PRODUCT_FINAL=`echo $TARGET_PRODUCT | cut -d '_' -f2`
     echo $CL_CYN"MODVERSION: $MODVERSION"$CL_RST
     OUTFILE=$OUT/$MODVERSION-$TARGET_PRODUCT_FINAL.zip
-elif [ "$BUILD_TYPE" = PACMAN ] ; then
-	ROMVERSION=`grep 'ro.pacrom.version=' $REPACK/ota/system/build.prop | sed -e 's/ro.pacrom.version=//g'`
-	OUTFILE=$OUT/$ROMVERSION.zip
-	echo ROMVERSION: $ROMVERSION
 else
 	OUTFILE=$OUT/update-squished.zip
 fi
