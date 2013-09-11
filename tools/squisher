@@ -124,6 +124,11 @@ else
 	OUTFILE=$OUT/update-squished.zip
 fi
 
+if [ "$SKIP" = true ] ; then
+    OUTFILE=$OUT/$ROMVERSION-$TAG.zip
+fi
+
+
 if [ "$BUILD_TYPE" = ParanoidAndroid ] ; then
     # Copy ParanoidPreferences overlays
     printf "Copying overlay preferences for $OVERLAYTARGET..."
@@ -133,10 +138,13 @@ if [ "$BUILD_TYPE" = ParanoidAndroid ] ; then
     cp -r $ANDROID_BUILD_TOP/vendor/PoonKang/prebuilt/preferences/images/* $REPACK/ota/system/etc/paranoid/preferences/images/
     cp -r $ANDROID_BUILD_TOP/vendor/PoonKang/prebuilt/preferences/$OVERLAYTARGET/* $REPACK/ota/system/etc/paranoid/preferences/
     echo "ro.pa=true"  >> $REPACK/ota/system/build.prop
+    echo "ro.pa.device=${TARGET_PRODUCT:9}"  >> $REPACK/ota/system/build.prop
 
-    # Inject build manifest
-    printf "Injecting build manifest..."
-    ( cd $ANDROID_BUILD_TOP; repo manifest -o $REPACK/ota/system/etc/build-manifest.xml -r . )
+    if [ "$SKIP" = true ] ; then
+        # Inject build manifest
+        printf "Injecting build manifest..."
+        ( cd $ANDROID_BUILD_TOP; repo manifest -o $REPACK/ota/system/etc/build-manifest.xml -r )
+    fi
 fi
 
 # Pack it up and sign
